@@ -3,6 +3,7 @@ var browserSync = require('browser-sync');
 var sass        = require('gulp-sass');
 var prefix      = require('gulp-autoprefixer');
 var cssnano     = require('gulp-cssnano');
+var babel       = require("gulp-babel");
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
 
@@ -12,7 +13,7 @@ var uglify      = require('gulp-uglify');
 gulp.task('browser-sync', ['sass', 'scripts'], function() {
   browserSync.init({
     server: "./",
-    port: 2314
+    port: 5290
   });
 });
 
@@ -47,6 +48,7 @@ gulp.task('sass-prod', function () {
  */
 gulp.task('scripts', function() {
   return gulp.src(['js/*.js', 'js/custom.js'])
+  .pipe(babel())
   .pipe(concat('scripts.js'))
   .pipe(gulp.dest('./'))
   .pipe(browserSync.reload({stream:true}))
@@ -54,6 +56,7 @@ gulp.task('scripts', function() {
 
 gulp.task('scripts-prod', function() {
   return gulp.src(['js/*.js', 'js/custom.js'])
+  .pipe(babel())
   .pipe(concat('scripts.js'))
   .pipe(uglify())
   .pipe(gulp.dest('./'))

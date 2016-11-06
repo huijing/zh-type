@@ -2,20 +2,77 @@ body {
   font-family: "Microsoft JhengHei", "微軟正黑體", "Heiti TC", "黑體-繁", sans-serif;
 }
 
+main {
+  margin-top: 2.5em;
+}
+
+p {
+  line-height: 2;
+}
+
 figure {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 figcaption {
-  margin-left: 0.5em;
-}
-
-.l-vert {
-  writing-mode: vertical-rl;
+  font-family: "MingLiU", "微軟新細明體", "Apple LiSung", serif;
+  line-height: 1.5;
 }
 
 img {
-  max-height: 65vh;
+  max-height: 50vmin;
+}
+
+.img-wrapper {
+  display: flex;
+}
+
+.c-switcher:not(:checked) ~ main {
+  max-width: 40em;
+  margin: 0 auto;
+
+  figure {
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  figcaption {
+    margin-bottom: 0.5em;
+    flex: 0 0 100%;
+  }
+
+  .img-rotate {
+    transform: rotate(-90deg);
+  }
+}
+
+.c-switcher:checked ~ main {
+  writing-mode: vertical-rl;
+  max-height: 40em;
+
+  figure {
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  figcaption {
+    margin-left: 0.5em;
+  }
+
+  .img-stacked {
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+.c-switcher,
+.c-switcher__label {
+  position: fixed;
+  top: 0.5em;
+}
+
+.c-switcher__label {
+  left: 2em;
 }
