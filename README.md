@@ -1,6 +1,6 @@
-###A blank HTML5 template for experiments
+### A Chinese typography experiment
 
-1. `git clone git@github.com:huijing/blank-html5.git`
+1. `git clone git@github.com:huijing/zh-type.git`
 2. `npm install`
 3. `gulp`
 
