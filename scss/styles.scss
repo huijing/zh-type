@@ -1,6 +1,11 @@
+html {
+  
+}
+
 body {
   font-family: "Microsoft JhengHei", "微軟正黑體", "Heiti TC", "黑體-繁", sans-serif;
   text-align: justify;
+  writing-mode: vertical-rl;
 }
 
 main {
@@ -30,8 +35,9 @@ img {
 }
 
 .c-switcher:not(:checked) ~ main {
+  writing-mode: horizontal-tb;
   max-width: 40em;
-  margin: 0 auto;
+  margin-right: 50%;
 
   figure {
     flex-wrap: wrap;
@@ -50,7 +56,6 @@ img {
 }
 
 .c-switcher:checked ~ main {
-  writing-mode: vertical-rl;
   max-height: 40em;
 
   figure {
@@ -73,6 +78,7 @@ img {
 .c-switcher__label {
   position: fixed;
   top: 0.5em;
+  writing-mode: horizontal-tb;
 }
 
 .c-switcher__label {
