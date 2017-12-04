@@ -21,7 +21,7 @@ gulp.task('browser-sync', ['sass', 'scripts'], function() {
  * Compile files from scss
  */
 gulp.task('sass', function () {
-  return gulp.src('scss/styles.scss')
+  return gulp.src('assets/scss/styles.scss')
   .pipe(sass({
     includePaths: ['scss'],
     onError: browserSync.notify
@@ -32,7 +32,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('sass-prod', function () {
-  return gulp.src('scss/styles.scss')
+  return gulp.src('assets/scss/styles.scss')
   .pipe(sass({
     includePaths: ['scss'],
     onError: browserSync.notify
@@ -47,16 +47,20 @@ gulp.task('sass-prod', function () {
  * Compile files from js
  */
 gulp.task('scripts', function() {
-  return gulp.src(['js/*.js', 'js/custom.js'])
-  .pipe(babel())
+  return gulp.src(['assets/js/*.js', 'assets/js/custom.js'])
+  .pipe(babel({
+    presets: ['env']
+  }))
   .pipe(concat('scripts.js'))
   .pipe(gulp.dest('./'))
   .pipe(browserSync.reload({stream:true}))
 });
 
 gulp.task('scripts-prod', function() {
-  return gulp.src(['js/*.js', 'js/custom.js'])
-  .pipe(babel())
+  return gulp.src(['assets/js/*.js', 'assets/js/custom.js'])
+  .pipe(babel({
+    presets: ['env']
+  }))
   .pipe(concat('scripts.js'))
   .pipe(uglify())
   .pipe(gulp.dest('./'))
@@ -76,8 +80,8 @@ gulp.task('html', function () {
  * Watch html files, reload BrowserSync
  */
 gulp.task('watch', function () {
-  gulp.watch(['scss/*.scss'], ['sass']);
-  gulp.watch(['js/*.js'], ['scripts']);
+  gulp.watch(['assets/scss/*.scss'], ['sass']);
+  gulp.watch(['assets/js/*.js'], ['scripts']);
   gulp.watch(['index.html'], ['html']);
 });
 

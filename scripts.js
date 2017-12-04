@@ -1,0 +1,1 @@
+"use strict";function changeEventHandler(e){var n=document.getElementById("switcher").checked,t=document.documentElement;t.className=n?"vertical":"horizontal"}document.addEventListener("DOMContentLoaded",function(){document.getElementById("switcher").onchange=changeEventHandler},!1);

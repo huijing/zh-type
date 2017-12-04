@@ -1,0 +1,349 @@
+html {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  writing-mode: vertical-rl;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: "Microsoft JhengHei", "微軟正黑體", "Heiti TC", "黑體-繁", sans-serif;
+  text-align: justify;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 2.5em;
+}
+
+img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+p {
+  line-height: 2;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  font-family: "MingLiU", "微軟新細明體", "Apple LiSung", serif;
+  line-height: 1.5;
+}
+
+.img-single {
+  margin: auto;
+}
+
+// Old-school with JS toggle
+// .c-switcher {
+//   writing-mode: horizontal-tb;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   padding: 0.25em;
+//   background-color: #fff;
+// }
+
+// figure {
+//   text-align: center;
+// }
+
+// figcaption {
+//   text-align: justify;
+//   display: inline-block;
+// }
+
+// .vertical {
+//   writing-mode: vertical-rl;
+
+//   main {
+//     max-height: 35em;
+//     margin-top: auto;
+//     margin-bottom: auto;
+//   }
+
+//   figure {
+//     margin-left: 1em;
+//   }
+
+//   figcaption {
+//     max-height: 30em;
+//     margin: auto 0.5em;
+//   }
+
+//   .img-single {
+//     max-height: 20em;
+//   }
+// }
+
+// .horizontal {
+//   writing-mode: horizontal-tb;
+
+//   main {
+//     max-width: 40em;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+
+//   figure {
+//     margin-bottom: 1em;
+//   }
+
+//   figcaption {
+//     max-width: 30em;
+//     margin: 0 auto;
+//   }
+
+//   .img-single {
+//     max-width: 20em;
+//   }
+
+//   .img-rotate {
+//     transform: rotate(-90deg);
+//   }
+// }
+
+// Old school with checkbox hack
+.c-switcher__checkbox,
+.c-switcher__label {
+  position: fixed;
+}
+
+.c-switcher__checkbox {
+  top: 0.5em;
+  left: 0.5em;
+}
+
+.c-switcher__label {
+  top: 0.25em;
+  left: 2em;
+  writing-mode: horizontal-tb;
+}
+
+figure {
+  text-align: center;
+}
+
+figcaption {
+  text-align: justify;
+  display: inline-block;
+}
+
+.c-switcher__checkbox:checked ~ main {
+  max-height: 35em;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  figure {
+    margin-left: 1em;
+  }
+
+  figcaption {
+    max-height: 30em;
+    margin: auto 0.5em;
+  }
+
+  .img-single {
+    max-height: 20em;
+  }
+}
+
+.c-switcher__checkbox:not(:checked) ~ main {
+  writing-mode: horizontal-tb;
+
+  figure {
+    margin-bottom: 1em;
+  }
+
+  figcaption {
+    max-width: 30em;
+    margin: 0 auto;
+  }
+
+  .img-single {
+    max-width: 20em;
+  }
+
+  .img-rotate {
+    transform: rotate(-90deg);
+  }
+}
+
+@media screen and (min-width: 40em) {
+  .c-switcher__checkbox:not(:checked) ~ main {
+    max-width: 40em;
+    position: absolute;
+    top: 0;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
+// Flexbox with JS toggle
+// .c-switcher {
+//   writing-mode: horizontal-tb;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   padding: 0.25em;
+//   background-color: #fff;
+// }
+
+// figure {
+//   display: flex;
+// }
+
+// .img-wrapper {
+//   text-align: center;
+// }
+
+// .vertical {
+//   writing-mode: vertical-rl;
+
+//   main {
+//     max-height: 35em;
+//     margin-top: auto;
+//     margin-bottom: auto;
+//   }
+
+//   figure {
+//     flex-direction: column;
+//     align-items: center;
+//     margin-left: 1em;
+//   }
+
+//   figcaption {
+//     max-height: 30em;
+//     margin-left: 0.5em;
+//   }
+
+//   .img-single {
+//     max-height: 20em;
+//   }
+// }
+
+// .horizontal {
+//   writing-mode: horizontal-tb;
+
+//   main {
+//     max-width: 40em;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+
+//   figure {
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     margin-bottom: 1em;
+//   }
+
+//   figcaption {
+//     max-width: 30em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .img-wrapper img {
+//     vertical-align: middle;
+//   }
+
+//   .img-single {
+//     max-width: 20em;
+//   }
+
+//   .img-rotate {
+//     transform: rotate(-90deg);
+//   }
+// }
+
+// Flexbox with checkbox hack
+// .c-switcher__checkbox,
+// .c-switcher__label {
+//   position: fixed;
+// }
+
+// .c-switcher__checkbox {
+//   top: 0.5em;
+//   left: 0.5em;
+// }
+
+// .c-switcher__label {
+//   top: 0.25em;
+//   left: 2em;
+//   writing-mode: horizontal-tb;
+// }
+
+// figure {
+//   display: flex;
+// }
+
+// .img-wrapper {
+//   text-align: center;
+// }
+
+// .c-switcher__checkbox:checked ~ main {
+//   max-height: 35em;
+//   margin-top: auto;
+//   margin-bottom: auto;
+
+//   figure {
+//     flex-direction: column;
+//     align-items: center;
+//     margin-left: 1em;
+//   }
+
+//   figcaption {
+//     max-height: 30em;
+//     margin-left: 0.5em;
+//   }
+
+//   .img-single {
+//     max-height: 20em;
+//   }
+// }
+
+// .c-switcher__checkbox:not(:checked) ~ main {
+//   writing-mode: horizontal-tb;
+
+//   figure {
+//     flex-wrap: wrap;
+//     justify-content: center;
+//     margin-bottom: 1em;
+//   }
+
+//   figcaption {
+//     max-width: 30em;
+//     margin-bottom: 0.5em;
+//   }
+
+//   .img-wrapper img {
+//     vertical-align: middle;
+//   }
+
+//   .img-single {
+//     max-width: 20em;
+//   }
+
+//   .img-rotate {
+//     transform: rotate(-90deg);
+//   }
+// }
+
+// @media screen and (min-width: 40em) {
+//   .c-switcher__checkbox:not(:checked) ~ main {
+//     max-width: 40em;
+//     position: absolute;
+//     top: 0;
+//     right: 50%;
+//     transform: translateX(50%);
+//   }
+// }
